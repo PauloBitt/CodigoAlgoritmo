@@ -12,16 +12,21 @@ public class SegundaQuestao {
     public static void main(String[] args) {
         Scanner in;
         LinkedList[] list = new LinkedList[Vertices];
-        int indice = 0;
+        int i = 0;
+        String[] numero = new String[5000];
         ligarListas(list);
         try {
             in = new Scanner(new FileReader("C://Users//paulo//Documents//NetBeansProjects//com-friendster.top5000.cmty.txt"));
             while (in.hasNextLine()) {
                 String line = in.nextLine();
-                list[indice].add(line);
-                indice++;
+                String[] array = line.split("\t");
+                numero[i] = array[0];
+                for (int j = 0; j< array.length - 1; j++){
+                    list[i].add(array[j+1]);
+                }
+                i++;
             }
-            print(list);
+            print(list, numero);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -33,10 +38,11 @@ public class SegundaQuestao {
         }
     }
 
-    static void print(LinkedList[] list) {
+    static void print(LinkedList[] list, String numero[]) {
         for (int i = 0; i < Vertices; i++) {
+            System.out.print(numero[i] + ": ");
             for (int j = 0; j < list[i].size(); j++) {
-                System.out.print(list[i].get(j));
+                System.out.print(list[i].get(j) + " ; ");
             }
             System.out.println();
         }
