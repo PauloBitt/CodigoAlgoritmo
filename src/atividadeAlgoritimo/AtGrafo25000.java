@@ -26,6 +26,7 @@ public class AtGrafo25000 {
                 }
                 i++;
             }
+            calcularVertices(list);
             print(list, numero);
             complexidade(list);
         } catch (FileNotFoundException e) {
@@ -38,10 +39,17 @@ public class AtGrafo25000 {
             list[i] = new LinkedList();
         }
     }
-
+    static void calcularVertices(LinkedList[] list){
+        int total = 0;
+        for (int i = 0; i < Vertices; i++){
+            total += list[i].size();
+        }
+        System.out.println("O grafo tem total de: "+total); 
+    
+    }
     static void print(LinkedList[] list, String numero[]) {
         for (int i = 0; i < Vertices; i++) {
-            System.out.print(numero[i] + " tem " + list[i].size() + " Vértices");
+            System.out.print(numero[i] + " tem " + list[i].size() + " Vértices Adj.");
             System.out.println();
          }
     }
