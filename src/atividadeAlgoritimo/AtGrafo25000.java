@@ -44,7 +44,7 @@ public class AtGrafo25000 {
         for (int i = 0; i < Vertices; i++){
             total += list[i].size();
         }
-        System.out.println("O grafo tem total de: "+total); 
+        System.out.println("O grafo tem total o total de vertices: "+total); 
     
     }
     static void print(LinkedList[] list, String numero[]) {
